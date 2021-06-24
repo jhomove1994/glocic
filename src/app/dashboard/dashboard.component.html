@@ -1,0 +1,62 @@
+<div class="container-form">
+  <div>
+    <h3>AGREGAR NUEVO CONTACTO</h3>
+  </div>
+  <form [formGroup]="form" (ngSubmit)="save()" class="form">
+    <div>
+      <label for="nombre">
+        Nombre
+      </label>
+      <input 
+          type="text" 
+          name="nombre" 
+          formControlName="nombre">
+    </div>
+    <div>
+      <label for="entidad">Entidad</label>
+      <input type="text" name="entidad" formControlName="Entidad">
+    </div>
+    <div>
+      <label for="email">Email</label>
+      <input type="email" name="email" formControlName="Email">
+    </div>
+    <div class="container-button">
+      <button type="submit">Agregar</button>
+    </div>
+  </form>
+</div>
+<div>
+    <input type="text" (keyup)="onChangeEvent($event)">
+</div>
+<div>
+  <table>
+    <thead>
+      <tr>
+        <th>
+          Nombre
+        </th>
+        <th>
+          Entidad
+        </th>
+        <th>
+          Email
+        </th>
+        <th>
+          Acciones
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let contacto of contactos; let i = index">
+        <td>{{contacto.nombre}}</td>
+        <td>{{contacto.Entidad}}</td>
+        <td>{{contacto.Email}}</td>
+        <td>
+          <a [routerLink]="['/editar', i]">Editar</a>
+          <button (click)="eliminar(i)">X</button>
+        </td>
+      </tr>
+      <tr></tr>
+    </tbody>
+  </table>
+</div>

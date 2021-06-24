@@ -1,0 +1,27 @@
+<div class="container-form">
+    <div>
+      <h3>AGREGAR NUEVO CONTACTO</h3>
+    </div>
+    <form [formGroup]="form" (ngSubmit)="save()" class="form">
+      <div>
+        <label for="nombre">
+          Nombre
+        </label>
+        <input 
+            type="text" 
+            name="nombre" 
+            formControlName="nombre">
+      </div>
+      <div>
+        <label for="entidad">Entidad</label>
+        <input type="text" name="entidad" formControlName="Entidad">
+      </div>
+      <div>
+        <label for="email">Email</label>
+        <input type="email" name="email" formControlName="Email">
+      </div>
+      <div class="container-button">
+        <button type="submit">Actualizar</button>
+      </div>
+    </form>
+  </div>
